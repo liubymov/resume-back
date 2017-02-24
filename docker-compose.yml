@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  resume:
+    build:
+      context: ./resume
+      dockerfile: ./docker/Dockerfile
+    image: mastak/prioritizator:latest
+    container_name: pr
+    volumes:
+      - .:/usr/src/resume
+    environment:
+      - DEBUG=1
+    ports:
+      - "8000:8000"
