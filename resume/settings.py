@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'resume.apps.pages',
+    'resume.apps.resumes',
 ]
 
 MIDDLEWARE = [
