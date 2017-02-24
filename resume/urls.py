@@ -18,7 +18,10 @@ from django.contrib import admin
 
 from rest_framework.routers import DefaultRouter
 
-from apps.pages.api.views import PageViewSet
+from resume.apps.pages.api.views import PageViewSet
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Pastebin API')
 
 
 router = DefaultRouter()
@@ -26,6 +29,7 @@ router.register(r'pages', PageViewSet)
 
 
 urlpatterns = [
+    url(r'^$', schema_view),
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 ]

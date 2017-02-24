@@ -96,3 +96,5 @@ ENV/
 .ropeproject
 
 .idea/
+staticfiles/
+db.sqlite3

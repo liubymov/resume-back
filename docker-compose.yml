@@ -4,10 +4,9 @@ services:
 
   resume:
     build:
-      context: ./resume
+      context: .
       dockerfile: ./docker/Dockerfile
     image: mastak/prioritizator:latest
-    container_name: pr
     volumes:
       - .:/usr/src/resume
     environment:

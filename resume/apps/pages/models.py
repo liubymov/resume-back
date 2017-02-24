@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Page(models.Model):
-    slug = models.SlugField(_('URL'), db_index=True)
+    slug = models.SlugField(_('slug'), db_index=True)
     title = models.CharField(_('title'), max_length=200)
     content = models.TextField(_('content'), blank=True)
 
