@@ -1,6 +1,7 @@
 import time
 
 from rest_framework import viewsets
+from rest_framework.exceptions import APIException
 
 from resume.apps.pages.models import Page
 from .serializers import PageSerializer
@@ -14,4 +15,6 @@ class PageViewSet(viewsets.ReadOnlyModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         if 'sleep' in request.GET:
             time.sleep(int(request.GET['sleep']))
+        if 'error' in request.GET:
+            raise APIException()
         return super(PageViewSet, self).retrieve(request, *args, **kwargs)
