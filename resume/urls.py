@@ -17,17 +17,19 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from rest_framework.routers import DefaultRouter
+from rest_framework_swagger.views import get_swagger_view
 
 from resume.apps.pages.api.views import PageViewSet
 from resume.apps.resumes.api.views import ResumeViewSet
-from rest_framework_swagger.views import get_swagger_view
+from resume.apps.users.api.views import UserViewSet
 
-schema_view = get_swagger_view(title='Pastebin API')
+schema_view = get_swagger_view(title='Resume API')
 
 
 router = DefaultRouter()
 router.register(r'pages', PageViewSet)
 router.register(r'resumes', ResumeViewSet)
+router.register(r'users', UserViewSet)
 
 
 urlpatterns = [

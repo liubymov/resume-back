@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'resume.apps.pages',
     'resume.apps.resumes',
+    'resume.apps.users',
 ]
 
 MIDDLEWARE = [
