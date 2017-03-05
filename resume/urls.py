@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh_jwt_token
 from rest_framework.routers import DefaultRouter
 from rest_framework_swagger.views import get_swagger_view
 
@@ -36,6 +36,10 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     url(r'^$', schema_view),
     url(r'^', include(router.urls)),
-    url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^api-token/', include([
+        url(r'^auth/$', obtain_jwt_token),
+        url(r'^verify/$', verify_jwt_token),
+        url(r'^refresh/$', refresh_jwt_token),
+    ])),
     url(r'^admin/', admin.site.urls),
 ]
